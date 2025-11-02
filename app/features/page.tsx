@@ -4,6 +4,7 @@ import { MousePointer2, Zap, Shield, FileJson, Gamepad2, FolderOpen, Moon, Eye, 
 import { FeatureCard } from '@/components/FeatureCard';
 import { Card } from '@/components/Card';
 import { Button } from '@/components/Button';
+import { assetPath, BASE_PATH } from '@/lib/assetPath';
 
 export const metadata: Metadata = {
   title: 'Features',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Browse4Extract Features - Complete Web Scraping Toolkit',
     description: 'Visual element picker, stealth mode, batch processing, and multiple export formats. Everything you need for professional web data extraction.',
-    images: ['/images/settings.png'],
+    images: [`${BASE_PATH}/images/settings.png`],
   },
 };
 
@@ -134,7 +135,7 @@ export default function FeaturesPage() {
           <Card variant="glow-brand" shine className="p-4">
             <div className="relative rounded-xl overflow-hidden border border-gray-800/50">
               <img
-                src="/images/settings.png"
+                src={assetPath('/images/settings.png')}
                 alt="Browse4Extract Settings Interface"
                 className="w-full h-auto"
               />

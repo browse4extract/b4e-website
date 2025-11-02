@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { BASE_PATH } from '@/lib/assetPath';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://browse4extract.github.io'),
+  metadataBase: new URL(`https://browse4extract.github.io${BASE_PATH}`),
   title: {
     default: 'Browse4Extract - Visual Web Data Extraction Tool',
     template: '%s | Browse4Extract'
@@ -44,13 +45,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://browse4extract.github.io',
+    url: `https://browse4extract.github.io${BASE_PATH}`,
     title: 'Browse4Extract - Visual Web Data Extraction Tool',
     description: 'Open source Electron app for extracting web data with visual element selection. No coding required.',
     siteName: 'Browse4Extract',
     images: [
       {
-        url: '/images/hero-screenshot.png',
+        url: `${BASE_PATH}/images/hero-screenshot.png`,
         width: 1200,
         height: 630,
         alt: 'Browse4Extract Application Interface',
@@ -61,13 +62,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Browse4Extract - Visual Web Data Extraction Tool',
     description: 'Open source Electron app for extracting web data with visual element selection. No coding required.',
-    images: ['/images/hero-screenshot.png'],
+    images: [`${BASE_PATH}/images/hero-screenshot.png`],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/logo.png',
+    icon: `${BASE_PATH}/favicon.ico`,
+    apple: `${BASE_PATH}/images/logo.png`,
   },
-  manifest: '/manifest.json',
+  manifest: `${BASE_PATH}/manifest.json`,
 };
 
 export default function RootLayout({

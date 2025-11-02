@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Download, Home, Sparkles, Github } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
@@ -22,7 +23,7 @@ export const Header: React.FC = () => {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden hover-glow-green transition-all">
               <img
-                src="/images/logo.png"
+                src={assetPath('/images/logo.png')}
                 alt="Browse4Extract Logo"
                 className="w-full h-full object-contain"
               />

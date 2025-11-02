@@ -5,6 +5,7 @@ import { Download, Github, Zap, MousePointer2, Shield, ArrowRight, Sparkles, Cod
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { FeatureCard } from '@/components/FeatureCard';
+import { assetPath } from '@/lib/assetPath';
 
 export const metadata: Metadata = {
   title: 'Browse4Extract - Visual Web Data Extraction Tool',
@@ -79,7 +80,7 @@ export default function Home() {
             <Card variant="glow-brand" shine className="p-3">
               <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800/50">
                 <img
-                  src="/images/hero-screenshot.png"
+                  src={assetPath('/images/hero-screenshot.png')}
                   alt="Browse4Extract Application Interface"
                   className="w-full h-full object-cover"
                 />

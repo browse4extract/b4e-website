@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Download, Github, Terminal, CheckCircle2, ExternalLink, Sparkles, Zap, BookOpen } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
+import { BASE_PATH } from '@/lib/assetPath';
 
 export const metadata: Metadata = {
   title: 'Download',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Download Browse4Extract - Free Web Scraping Tool',
     description: 'Download for Windows, macOS, or Linux. Free, open source, and cross-platform web data extraction tool.',
-    images: ['/images/hero-screenshot.png'],
+    images: [`${BASE_PATH}/images/hero-screenshot.png`],
   },
 };
 

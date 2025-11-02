@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Github, Heart, Star } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -17,7 +18,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl overflow-hidden">
                 <img
-                  src="/images/logo.png"
+                  src={assetPath('/images/logo.png')}
                   alt="Browse4Extract Logo"
                   className="w-full h-full object-contain"
                 />
