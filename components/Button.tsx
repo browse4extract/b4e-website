@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { LucideIcon } from 'lucide-react';
 
 interface ButtonProps {
@@ -33,8 +34,21 @@ export const Button: React.FC<ButtonProps> = ({
   const classes = `${baseClasses} ${variantClasses[variant]} ${glowClass} ${className}`;
 
   if (href) {
+    // Check if it's an internal link (starts with /)
+    const isInternalLink = href.startsWith('/') && !href.startsWith('//');
+
+    if (isInternalLink) {
+      return (
+        <Link href={href} className={classes}>
+          {Icon && <Icon size={20} />}
+          {children}
+        </Link>
+      );
+    }
+
+    // External link
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
         {Icon && <Icon size={20} />}
         {children}
       </a>
