@@ -1,0 +1,17 @@
+{
+  "name": "Browse4Extract - Visual Web Data Extraction Tool",
+  "short_name": "Browse4Extract",
+  "description": "A powerful Electron desktop application for extracting web data with visual element selection. No coding required.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#6fbb69",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
