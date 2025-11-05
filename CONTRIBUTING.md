@@ -5,7 +5,7 @@
 
   **Help us build the best web scraping tool website!**
 
-  [![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/4aGq6UZk3P)
+  [![Discord](https://img.shields.io/discord/1435637330382819430?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/4aGq6UZk3P)
 
 </div>
 

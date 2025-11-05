@@ -1,22 +1,30 @@
-# SafeImage Component
+<div align="center">
+  <img src="../public/images/logo.png" alt="Browse4Extract Logo" width="80" height="80">
 
-Un composant d'image robuste pour Next.js qui garantit un chargement fiable des assets avec gestion automatique des erreurs.
+  # SafeImage Component
 
-## Caractéristiques
+  **Robust image component with automatic fallback and asset path handling**
+</div>
 
-✅ **Gestion automatique du basePath** - Utilise `assetPath()` automatiquement pour tous les chemins
-✅ **Image placeholder intégrée** - Affiche une image de secours élégante en cas d'erreur
-✅ **Pas d'erreurs 404 visibles** - Gestion gracieuse des images manquantes
-✅ **Lazy loading par défaut** - Optimisation des performances
-✅ **Support des fallbacks personnalisés** - Possibilité de définir votre propre image de secours
-✅ **Logs de développement** - Avertissements en console pour le debugging
+---
 
-## Utilisation de base
+A robust image component for Next.js that ensures reliable asset loading with automatic error handling.
+
+## Features
+
+✅ **Automatic basePath handling** - Uses `assetPath()` automatically for all paths
+✅ **Built-in placeholder** - Displays elegant fallback image on error
+✅ **No visible 404 errors** - Graceful handling of missing images
+✅ **Lazy loading by default** - Performance optimization
+✅ **Custom fallback support** - Ability to define your own fallback image
+✅ **Development logs** - Console warnings for debugging
+
+## Basic Usage
 
 ```tsx
 import { SafeImage } from "@/components/SafeImage";
 
-// Utilisation simple
+// Simple usage
 <SafeImage
   src="/images/logo.png"
   alt="Logo"
@@ -28,16 +36,16 @@ import { SafeImage } from "@/components/SafeImage";
 
 ```tsx
 interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  src: string;              // Chemin de l'image (sera traité par assetPath)
-  alt: string;              // Texte alternatif (REQUIS pour l'accessibilité)
-  fallbackSrc?: string;     // Image de secours personnalisée (optionnel)
-  useAssetPath?: boolean;   // Utiliser assetPath (par défaut: true)
+  src: string;              // Image path (will be processed by assetPath)
+  alt: string;              // Alternative text (REQUIRED for accessibility)
+  fallbackSrc?: string;     // Custom fallback image (optional)
+  useAssetPath?: boolean;   // Use assetPath (default: true)
 }
 ```
 
-## Exemples
+## Examples
 
-### Image standard
+### Standard Image
 
 ```tsx
 <SafeImage
@@ -47,7 +55,7 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 />
 ```
 
-### Avec fallback personnalisé
+### With Custom Fallback
 
 ```tsx
 <SafeImage
@@ -58,7 +66,7 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 />
 ```
 
-### URL externe (sans assetPath)
+### External URL (without assetPath)
 
 ```tsx
 <SafeImage
@@ -69,34 +77,34 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 />
 ```
 
-## Fonctionnement
+## How It Works
 
-1. **Chargement initial** : Le composant applique automatiquement `assetPath()` au `src` fourni
-2. **En cas d'erreur** : Si l'image ne charge pas, une image placeholder SVG est générée automatiquement
-3. **Fallback personnalisé** : Si vous spécifiez `fallbackSrc`, celui-ci sera utilisé à la place du placeholder
-4. **Logs de debug** : En développement, les erreurs sont loggées dans la console
+1. **Initial loading**: Component automatically applies `assetPath()` to provided `src`
+2. **On error**: If image fails to load, an SVG placeholder is generated automatically
+3. **Custom fallback**: If you specify `fallbackSrc`, it will be used instead of the placeholder
+4. **Debug logs**: In development, errors are logged to the console
 
-## Placeholder par défaut
+## Default Placeholder
 
-Le placeholder généré automatiquement est un SVG avec :
-- Fond sombre (`#1a1a2e`)
-- Icône d'image stylisée en vert (`#16a34a`)
-- Texte "Image not available"
-- Design cohérent avec le thème de l'application
+The automatically generated placeholder is an SVG with:
+- Dark background (`#1a1a2e`)
+- Stylized image icon in green (`#16a34a`)
+- Text "Image not available"
+- Design consistent with the application theme
 
-## Avantages par rapport à `<img>`
+## Advantages Over `<img>`
 
-| Fonctionnalité | `<img>` natif | `<SafeImage>` |
-|----------------|---------------|---------------|
-| Gestion automatique du basePath | ❌ | ✅ |
-| Fallback sur erreur | ❌ | ✅ |
-| Placeholder élégant | ❌ | ✅ |
-| Logs de développement | ❌ | ✅ |
-| Lazy loading par défaut | ⚠️ Manuel | ✅ Automatique |
+| Feature | Native `<img>` | `<SafeImage>` |
+|---------|----------------|---------------|
+| Automatic basePath handling | ❌ | ✅ |
+| Fallback on error | ❌ | ✅ |
+| Elegant placeholder | ❌ | ✅ |
+| Development logs | ❌ | ✅ |
+| Lazy loading by default | ⚠️ Manual | ✅ Automatic |
 
-## Migration depuis `<img>`
+## Migration from `<img>`
 
-Avant :
+Before:
 ```tsx
 <img
   src={assetPath("/images/logo.png")}
@@ -105,7 +113,7 @@ Avant :
 />
 ```
 
-Après :
+After:
 ```tsx
 <SafeImage
   src="/images/logo.png"
@@ -114,36 +122,37 @@ Après :
 />
 ```
 
-## Quand utiliser SafeImage
+## When to Use SafeImage
 
-✅ **Utilisez SafeImage pour :**
-- Toutes les images de votre site (logos, screenshots, assets)
-- Images qui peuvent parfois manquer
-- Déploiements avec basePath variable (GitHub Pages, etc.)
+✅ **Use SafeImage for:**
+- All images on your site (logos, screenshots, assets)
+- Images that may sometimes be missing
+- Deployments with variable basePath (GitHub Pages, etc.)
 
-❌ **N'utilisez PAS SafeImage pour :**
-- Images en arrière-plan CSS (utilisez `assetPath()` directement)
-- SVG inline dans le JSX
-- Icônes de bibliothèques comme lucide-react
+❌ **DO NOT use SafeImage for:**
+- CSS background images (use `assetPath()` directly)
+- Inline SVG in JSX
+- Icon library icons like lucide-react
 
-## Notes techniques
+## Technical Notes
 
-- Le composant utilise `useState` et `useEffect` pour gérer l'état de l'image
-- L'attribut `loading="lazy"` est appliqué par défaut (peut être overridé)
-- Le placeholder SVG est encodé en data URL pour éviter les requêtes HTTP
-- Les chemins absolus (http://, https://, data:, blob:) ne sont jamais modifiés
+- Component uses `useState` and `useEffect` to manage image state
+- The `loading="lazy"` attribute is applied by default (can be overridden)
+- The placeholder SVG is encoded as a data URL to avoid HTTP requests
+- Absolute paths (http://, https://, data:, blob:) are never modified
 
 ## Troubleshooting
 
-**L'image ne s'affiche pas :**
-1. Vérifiez que le fichier existe dans `public/images/`
-2. Vérifiez la console pour les warnings de développement
-3. Assurez-vous que `NEXT_PUBLIC_BASE_PATH` est correctement configuré
+**Image doesn't display:**
+1. Check that the file exists in `public/images/`
+2. Check the console for development warnings
+3. Ensure `NEXT_PUBLIC_BASE_PATH` is correctly configured
 
-**Le placeholder s'affiche à la place :**
-- L'image n'a pas pu être chargée
-- Vérifiez le chemin dans la console (mode développement)
-- Vérifiez que l'image existe dans le dossier `public/`
+**Placeholder displays instead:**
+- The image could not be loaded
+- Check the path in the console (development mode)
+- Verify that the image exists in the `public/` folder
+
 ---
 
 © 2025 B4E Team & Contributors | MIT Licensed

@@ -64,7 +64,7 @@ export default function Error({
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
-              variant="default"
+              variant="primary"
               icon={RefreshCw}
               onClick={reset}
               glow

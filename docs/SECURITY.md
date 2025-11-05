@@ -1,4 +1,12 @@
-# Security Policy
+<div align="center">
+  <img src="../public/images/logo.png" alt="Browse4Extract Logo" width="80" height="80">
+
+  # Security Policy
+
+  **Security measures and vulnerability reporting guidelines**
+</div>
+
+---
 
 ## Security Measures Implemented
 
@@ -73,7 +81,7 @@ Comprehensive security headers are configured in `next.config.js`:
 If you discover a security vulnerability, please report it via:
 
 1. **GitHub Security Advisories**: [Report a vulnerability](https://github.com/browse4extract/b4e-website/security/advisories/new)
-2. **Email**: security@browse4extract.org (if available)
+2. **Discord**: Join our server at [discord.gg/4aGq6UZk3P](https://discord.gg/4aGq6UZk3P) and DM @sieapps
 
 **Please do not** report security vulnerabilities through public GitHub issues.
 
@@ -121,3 +129,7 @@ This document is maintained to reflect the current security posture of the proje
 | < 1.0   | :x:                |
 
 We only support the latest version. Please always use the most recent release.
+
+---
+
+© 2025 B4E Team & Contributors | MIT Licensed
