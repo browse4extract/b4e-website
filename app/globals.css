@@ -198,4 +198,38 @@
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     opacity: 0.8;
   }
+
+  /* Toast animations */
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Brand glow animation for warning modal */
+  .animate-brand-glow {
+    animation: brandGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes brandGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(111, 187, 105, 0.3),
+                  0 0 40px rgba(191, 143, 215, 0.2),
+                  0 0 60px rgba(111, 187, 105, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(111, 187, 105, 0.6),
+                  0 0 60px rgba(191, 143, 215, 0.4),
+                  0 0 90px rgba(111, 187, 105, 0.2);
+    }
+  }
 }

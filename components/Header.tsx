@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Download, Home, Sparkles, Github } from 'lucide-react';
-import { assetPath } from '@/lib/assetPath';
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Download, Home, Sparkles, Github } from "lucide-react";
+import { SafeImage } from "@/components/SafeImage";
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home', icon: Home },
-    { href: '/features', label: 'Features', icon: Sparkles },
-    { href: '/download', label: 'Download', icon: Download },
+    { href: "/", label: "Home", icon: Home },
+    { href: "/features", label: "Features", icon: Sparkles },
+    { href: "/download", label: "Download", icon: Download },
   ];
 
   return (
@@ -22,8 +22,8 @@ export const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden hover-glow-green transition-all">
-              <img
-                src={assetPath('/images/logo.png')}
+              <SafeImage
+                src="/images/logo.png"
                 alt="Browse4Extract Logo"
                 className="w-full h-full object-contain"
               />
@@ -45,8 +45,8 @@ export const Header: React.FC = () => {
                   href={item.href}
                   className={`px-4 py-2 rounded-xl flex items-center gap-2 transition-all ${
                     isActive
-                      ? 'bg-gradient-brand text-white glow-brand'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                      ? "bg-gradient-brand text-white glow-brand"
+                      : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   <Icon size={18} />
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
 
             {/* GitHub Link */}
             <a
-              href="https://github.com/browse4extract/Browse4Extract"
+              href="https://github.com/orgs/browse4extract/repositories"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-xl flex items-center gap-2 text-gray-300 hover:text-white hover:bg-white/5 transition-all"

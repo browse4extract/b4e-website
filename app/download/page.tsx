@@ -1,63 +1,96 @@
-import React from 'react';
-import type { Metadata } from 'next';
-import { Download, Github, Terminal, CheckCircle2, ExternalLink, Sparkles, Zap, BookOpen } from 'lucide-react';
-import { Button } from '@/components/Button';
-import { Card } from '@/components/Card';
-import { BASE_PATH } from '@/lib/assetPath';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Download',
-  description: 'Download Browse4Extract for Windows, macOS, or Linux. Free and open source web scraping tool. Get the latest v1.0.0 release or build from source. System requirements and installation guides included.',
-  keywords: [
-    'download browse4extract',
-    'windows scraper download',
-    'macos scraper download',
-    'linux scraper download',
-    'electron app download',
-    'free web scraper',
-    'open source scraper download',
-    'browse4extract installer',
-    'browse4extract setup',
-    'web scraping tool download'
-  ],
-  openGraph: {
-    title: 'Download Browse4Extract - Free Web Scraping Tool',
-    description: 'Download for Windows, macOS, or Linux. Free, open source, and cross-platform web data extraction tool.',
-    images: [`${BASE_PATH}/images/hero-screenshot.png`],
-  },
-};
+import React from "react";
+import {
+  Download,
+  Github,
+  Terminal,
+  CheckCircle2,
+  ExternalLink,
+  Sparkles,
+  Zap,
+  BookOpen,
+  AlertCircle,
+} from "lucide-react";
+import { Button } from "@/components/Button";
+import { DownloadButton } from "@/components/DownloadButton";
+import { DomainDisplay } from "@/components/DomainDisplay";
+import { Card } from "@/components/Card";
 
 export default function DownloadPage() {
   const platforms = [
     {
-      name: 'Windows',
-      icon: '🪟',
-      file: 'Browse4Extract-Setup.exe',
-      description: 'NSIS Installer',
-      requirements: 'Windows 10+',
-      color: 'green',
+      name: "Windows",
+      icon: "🪟",
+      file: "Browse4Extract-Setup.exe",
+      description: "NSIS Installer",
+      requirements: "Windows 10+",
+      color: "green",
     },
     {
-      name: 'macOS',
-      icon: '🍎',
-      file: 'Browse4Extract.dmg',
-      description: 'Universal Binary',
-      requirements: 'macOS 10.15+',
-      color: 'violet',
+      name: "macOS",
+      icon: "🍎",
+      file: "Browse4Extract.dmg",
+      description: "Universal Binary",
+      requirements: "macOS 10.15+",
+      color: "violet",
     },
     {
-      name: 'Linux',
-      icon: '🐧',
-      file: 'Browse4Extract.AppImage',
-      description: 'Portable AppImage',
-      requirements: 'Ubuntu 18.04+',
-      color: 'green',
+      name: "Linux",
+      icon: "🐧",
+      file: "Browse4Extract.AppImage",
+      description: "Portable AppImage",
+      requirements: "Ubuntu 18.04+",
+      color: "green",
     },
   ];
 
   return (
     <div className="min-h-screen py-20 px-4 pt-32">
       <div className="container mx-auto max-w-6xl">
+        {/* Development Notice Banner */}
+        <Card
+          variant="glow-violet"
+          className="mb-12 border-2 border-brand-violet/30"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0">
+              <div className="p-3 bg-brand-violet/20 rounded-xl">
+                <AlertCircle size={32} className="text-brand-violet" />
+              </div>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-3 gradient-text-violet">
+                Software in Development
+              </h3>
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                Browse4Extract is currently under development and will be
+                available for download soon.
+              </p>
+              <div className="glass-subtle rounded-lg p-4 border border-gray-800">
+                <p className="text-sm text-gray-400 mb-2">
+                  <strong className="text-brand-green">Stay updated:</strong>{" "}
+                  Bookmark <DomainDisplay /> to stay informed.
+                </p>
+                <p className="text-sm text-gray-400">
+                  <strong className="text-brand-violet">Security:</strong> This
+                  is the only official domain for the application. To be sure,
+                  you can also go through{" "}
+                  <a
+                    href="https://github.com/browse4extract"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-green hover:underline font-mono"
+                  >
+                    github.com/browse4extract
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        </Card>
+
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-strong border border-gray-800 rounded-full text-sm mb-8">
@@ -81,24 +114,32 @@ export default function DownloadPage() {
             <Card
               key={platform.name}
               hover
-              variant={platform.color === 'green' ? 'glow-green' : 'glow-violet'}
+              variant={
+                platform.color === "green" ? "glow-green" : "glow-violet"
+              }
               shine
               className="text-center"
             >
-              <div className="text-7xl mb-6 animate-pulse" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div
+                className="text-7xl mb-6 animate-pulse"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 {platform.icon}
               </div>
-              <h3 className="text-3xl font-bold mb-3 text-white">{platform.name}</h3>
+              <h3 className="text-3xl font-bold mb-3 text-white">
+                {platform.name}
+              </h3>
               <p className="text-gray-400 mb-2">{platform.description}</p>
-              <p className="text-sm text-gray-500 mb-6">{platform.requirements}</p>
-              <Button
-                icon={Download}
-                href={`https://github.com/browse4extract/Browse4Extract/releases/latest/download/${platform.file}`}
+              <p className="text-sm text-gray-500 mb-6">
+                {platform.requirements}
+              </p>
+              <DownloadButton
                 glow
                 className="w-full justify-center"
+                platform={platform.name}
               >
                 Download
-              </Button>
+              </DownloadButton>
             </Card>
           ))}
         </div>
@@ -109,7 +150,9 @@ export default function DownloadPage() {
             <h2 className="text-4xl font-bold mb-4">
               <span className="gradient-text">Quick Start</span>
             </h2>
-            <p className="text-gray-400 text-lg">Installation steps for each platform</p>
+            <p className="text-gray-400 text-lg">
+              Installation steps for each platform
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -118,15 +161,24 @@ export default function DownloadPage() {
               <h3 className="text-xl font-semibold mb-4 text-white">Windows</h3>
               <ol className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-green mt-0.5 flex-shrink-0"
+                  />
                   <span>Download the .exe installer</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-green mt-0.5 flex-shrink-0"
+                  />
                   <span>Run installer, follow prompts</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-green mt-0.5 flex-shrink-0"
+                  />
                   <span>Launch from Start Menu</span>
                 </li>
               </ol>
@@ -137,15 +189,24 @@ export default function DownloadPage() {
               <h3 className="text-xl font-semibold mb-4 text-white">macOS</h3>
               <ol className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-violet mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-violet mt-0.5 flex-shrink-0"
+                  />
                   <span>Download the .dmg file</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-violet mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-violet mt-0.5 flex-shrink-0"
+                  />
                   <span>Drag to Applications folder</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-violet mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-violet mt-0.5 flex-shrink-0"
+                  />
                   <span>Right-click → Open (first launch)</span>
                 </li>
               </ol>
@@ -156,15 +217,24 @@ export default function DownloadPage() {
               <h3 className="text-xl font-semibold mb-4 text-white">Linux</h3>
               <ol className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-green mt-0.5 flex-shrink-0"
+                  />
                   <span>Download the .AppImage</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-green mt-0.5 flex-shrink-0"
+                  />
                   <span>Make executable (chmod +x)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                  <CheckCircle2
+                    size={18}
+                    className="text-brand-green mt-0.5 flex-shrink-0"
+                  />
                   <span>Run the AppImage file</span>
                 </li>
               </ol>
@@ -181,17 +251,25 @@ export default function DownloadPage() {
               </div>
             </div>
             <div className="flex-1">
-              <h3 className="text-3xl font-semibold mb-4 text-white">Build from Source</h3>
+              <h3 className="text-3xl font-semibold mb-4 text-white">
+                Build from Source
+              </h3>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Want to build it yourself? Clone the repository and compile with Node.js 18+
+                Want to build it yourself? Clone the repository and compile with
+                Node.js 18+
               </p>
               <div className="bg-dark-pure/80 rounded-xl p-5 font-mono text-sm mb-6 overflow-x-auto border border-gray-800">
                 <div className="text-gray-500 mb-1"># Clone repository</div>
-                <div className="text-brand-green mb-4">git clone https://github.com/browse4extract/Browse4Extract.git</div>
+                <div className="text-brand-green mb-4">
+                  git clone https://github.com/browse4extract/Browse4Extract.git
+                </div>
                 <div className="text-gray-500 mb-1"># Install dependencies</div>
                 <div className="text-brand-green mb-4">npm install</div>
                 <div className="text-gray-500 mb-1"># Run or build</div>
-                <div className="text-brand-violet">npm run dev <span className="text-gray-600"># or</span> npm run build</div>
+                <div className="text-brand-violet">
+                  npm run dev <span className="text-gray-600"># or</span> npm
+                  run build
+                </div>
               </div>
               <Button
                 variant="outline"
@@ -207,7 +285,9 @@ export default function DownloadPage() {
         {/* Requirements & Support */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <Card>
-            <h3 className="text-2xl font-bold mb-6 gradient-text">System Requirements</h3>
+            <h3 className="text-2xl font-bold mb-6 gradient-text">
+              System Requirements
+            </h3>
             <div className="space-y-6">
               <div>
                 <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
@@ -237,8 +317,12 @@ export default function DownloadPage() {
           </Card>
 
           <Card>
-            <h3 className="text-2xl font-bold mb-6 gradient-text">Need Help?</h3>
-            <p className="text-gray-400 mb-6">Get support, report issues, or contribute to the project</p>
+            <h3 className="text-2xl font-bold mb-6 gradient-text">
+              Need Help?
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Get support, report issues, or contribute to the project
+            </p>
             <div className="space-y-3">
               <a
                 href="https://github.com/browse4extract/Browse4Extract/issues"
@@ -248,8 +332,12 @@ export default function DownloadPage() {
               >
                 <ExternalLink size={20} className="text-brand-green" />
                 <div className="flex-1">
-                  <div className="font-medium text-white group-hover:gradient-text">Report an Issue</div>
-                  <div className="text-xs text-gray-500">Bug reports and feature requests</div>
+                  <div className="font-medium text-white group-hover:gradient-text">
+                    Report an Issue
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    Bug reports and feature requests
+                  </div>
                 </div>
               </a>
               <a
@@ -260,8 +348,12 @@ export default function DownloadPage() {
               >
                 <BookOpen size={20} className="text-brand-violet" />
                 <div className="flex-1">
-                  <div className="font-medium text-white group-hover:gradient-text">Documentation</div>
-                  <div className="text-xs text-gray-500">Setup guides and API docs</div>
+                  <div className="font-medium text-white group-hover:gradient-text">
+                    Documentation
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    Setup guides and API docs
+                  </div>
                 </div>
               </a>
             </div>

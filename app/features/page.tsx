@@ -1,35 +1,30 @@
-import React from 'react';
-import type { Metadata } from 'next';
-import { MousePointer2, Zap, Shield, FileJson, Gamepad2, FolderOpen, Moon, Eye, Link2, Image, FileCode, Cookie, ScrollText, AlertCircle, Layers, Settings, RefreshCw, Download } from 'lucide-react';
-import { FeatureCard } from '@/components/FeatureCard';
-import { Card } from '@/components/Card';
-import { Button } from '@/components/Button';
-import { assetPath, BASE_PATH } from '@/lib/assetPath';
+"use client";
 
-export const metadata: Metadata = {
-  title: 'Features',
-  description: 'Explore all Browse4Extract features: visual element picker, powerful extraction engine, anti-detection stealth mode, multiple export formats (JSON, CSV, Excel), profile management, batch processing, and lazy loading support.',
-  keywords: [
-    'web scraping features',
-    'visual element picker',
-    'data extraction tools',
-    'stealth mode scraper',
-    'batch processing',
-    'lazy loading support',
-    'export to json',
-    'export to csv',
-    'export to excel',
-    'puppeteer stealth',
-    'ad blocker',
-    'cookie consent handling',
-    'discord rich presence'
-  ],
-  openGraph: {
-    title: 'Browse4Extract Features - Complete Web Scraping Toolkit',
-    description: 'Visual element picker, stealth mode, batch processing, and multiple export formats. Everything you need for professional web data extraction.',
-    images: [`${BASE_PATH}/images/settings.png`],
-  },
-};
+import React from "react";
+import {
+  MousePointer2,
+  Zap,
+  Shield,
+  FileJson,
+  Gamepad2,
+  FolderOpen,
+  Moon,
+  Eye,
+  Link2,
+  Image,
+  FileCode,
+  Cookie,
+  ScrollText,
+  AlertCircle,
+  Layers,
+  Settings,
+  RefreshCw,
+  Download,
+} from "lucide-react";
+import { FeatureCard } from "@/components/FeatureCard";
+import { Card } from "@/components/Card";
+import { Button } from "@/components/Button";
+import { SafeImage } from "@/components/SafeImage";
 
 export default function FeaturesPage() {
   return (
@@ -47,7 +42,9 @@ export default function FeaturesPage() {
           </h1>
           <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
             Everything you need for professional web data extraction,
-            <span className="block mt-2 text-gray-400">packed into an intuitive desktop application</span>
+            <span className="block mt-2 text-gray-400">
+              packed into an intuitive desktop application
+            </span>
           </p>
         </div>
 
@@ -97,16 +94,48 @@ export default function FeaturesPage() {
             <h2 className="text-4xl font-bold mb-4">
               <span className="gradient-text">What Can You Extract?</span>
             </h2>
-            <p className="text-gray-400 text-lg">Six extraction types to handle any data</p>
+            <p className="text-gray-400 text-lg">
+              Six extraction types to handle any data
+            </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: FileCode, title: 'Text Content', description: 'Extract visible text from any element', gradient: 'green' },
-              { icon: Link2, title: 'Links & URLs', description: 'Grab href attributes from links', gradient: 'violet' },
-              { icon: Image, title: 'Images', description: 'Extract image URLs and alt text', gradient: 'green' },
-              { icon: Eye, title: 'HTML Attributes', description: 'Get any attribute (class, id, data-*, etc.)', gradient: 'violet' },
-              { icon: Layers, title: 'Child Elements', description: 'Extract nested content recursively', gradient: 'green' },
-              { icon: Settings, title: 'Custom Selectors', description: 'Write your own CSS/XPath selectors', gradient: 'violet' },
+              {
+                icon: FileCode,
+                title: "Text Content",
+                description: "Extract visible text from any element",
+                gradient: "green",
+              },
+              {
+                icon: Link2,
+                title: "Links & URLs",
+                description: "Grab href attributes from links",
+                gradient: "violet",
+              },
+              {
+                icon: Image,
+                title: "Images",
+                description: "Extract image URLs and alt text",
+                gradient: "green",
+              },
+              {
+                icon: Eye,
+                title: "HTML Attributes",
+                description: "Get any attribute (class, id, data-*, etc.)",
+                gradient: "violet",
+              },
+              {
+                icon: Layers,
+                title: "Child Elements",
+                description: "Extract nested content recursively",
+                gradient: "green",
+              },
+              {
+                icon: Settings,
+                title: "Custom Selectors",
+                description: "Write your own CSS/XPath selectors",
+                gradient: "violet",
+              },
             ].map((type, index) => {
               const Icon = type.icon;
               return (
@@ -115,7 +144,7 @@ export default function FeaturesPage() {
                   icon={Icon}
                   title={type.title}
                   description={type.description}
-                  gradient={type.gradient as 'green' | 'violet'}
+                  gradient={type.gradient as "green" | "violet"}
                   compact
                 />
               );
@@ -129,13 +158,15 @@ export default function FeaturesPage() {
             <h2 className="text-4xl font-bold mb-4">
               <span className="gradient-text">Intuitive Configuration</span>
             </h2>
-            <p className="text-gray-400 text-lg">Powerful settings in a clean, user-friendly interface</p>
+            <p className="text-gray-400 text-lg">
+              Powerful settings in a clean, user-friendly interface
+            </p>
           </div>
 
           <Card variant="glow-brand" shine className="p-4">
             <div className="relative rounded-xl overflow-hidden border border-gray-800/50">
-              <img
-                src={assetPath('/images/settings.png')}
+              <SafeImage
+                src="/images/settings.png"
                 alt="Browse4Extract Settings Interface"
                 className="w-full h-auto"
               />
@@ -150,7 +181,9 @@ export default function FeaturesPage() {
             <h2 className="text-4xl font-bold mb-4">
               <span className="gradient-text">Advanced Capabilities</span>
             </h2>
-            <p className="text-gray-400 text-lg">Professional features for complex scraping tasks</p>
+            <p className="text-gray-400 text-lg">
+              Professional features for complex scraping tasks
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -159,9 +192,13 @@ export default function FeaturesPage() {
                 <div className="inline-block p-4 bg-gradient-green rounded-xl mb-4">
                   <RefreshCw size={32} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3 text-white">Lazy Loading Support</h3>
+                <h3 className="text-2xl font-semibold mb-3 text-white">
+                  Lazy Loading Support
+                </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Automatic scroll handling detects and loads lazy-loaded content. Perfect for infinite scroll pages and dynamic content that loads on demand.
+                  Automatic scroll handling detects and loads lazy-loaded
+                  content. Perfect for infinite scroll pages and dynamic content
+                  that loads on demand.
                 </p>
               </div>
             </Card>
@@ -171,9 +208,13 @@ export default function FeaturesPage() {
                 <div className="inline-block p-4 bg-gradient-violet rounded-xl mb-4">
                   <Layers size={32} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3 text-white">Batch Processing</h3>
+                <h3 className="text-2xl font-semibold mb-3 text-white">
+                  Batch Processing
+                </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Extract from hundreds of elements simultaneously. Process entire product catalogs, article lists, or search results in one go.
+                  Extract from hundreds of elements simultaneously. Process
+                  entire product catalogs, article lists, or search results in
+                  one go.
                 </p>
               </div>
             </Card>
@@ -186,7 +227,9 @@ export default function FeaturesPage() {
             <h2 className="text-4xl font-bold mb-4">
               <span className="gradient-text">Stealth & Privacy</span>
             </h2>
-            <p className="text-gray-400 text-lg">Bypass detection systems that block traditional scrapers</p>
+            <p className="text-gray-400 text-lg">
+              Bypass detection systems that block traditional scrapers
+            </p>
           </div>
 
           <Card variant="glow-brand" className="mb-8">
@@ -195,25 +238,33 @@ export default function FeaturesPage() {
                 <div className="inline-block p-4 bg-gradient-brand rounded-xl mb-4">
                   <Shield size={32} className="text-white" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2 text-white">Stealth Mode</h3>
+                <h3 className="font-semibold text-lg mb-2 text-white">
+                  Stealth Mode
+                </h3>
                 <p className="text-gray-400 text-sm">
-                  Puppeteer Stealth plugin masks automation signals and mimics real user behavior
+                  Puppeteer Stealth plugin masks automation signals and mimics
+                  real user behavior
                 </p>
               </div>
               <div className="text-center">
                 <div className="inline-block p-4 bg-gradient-brand rounded-xl mb-4">
                   <AlertCircle size={32} className="text-white" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2 text-white">Ad Blocker</h3>
+                <h3 className="font-semibold text-lg mb-2 text-white">
+                  Ad Blocker
+                </h3>
                 <p className="text-gray-400 text-sm">
-                  Remove popups and banners for faster loads and cleaner extraction
+                  Remove popups and banners for faster loads and cleaner
+                  extraction
                 </p>
               </div>
               <div className="text-center">
                 <div className="inline-block p-4 bg-gradient-brand rounded-xl mb-4">
                   <Cookie size={32} className="text-white" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2 text-white">Auto Consent</h3>
+                <h3 className="font-semibold text-lg mb-2 text-white">
+                  Auto Consent
+                </h3>
                 <p className="text-gray-400 text-sm">
                   Automatic cookie consent handling eliminates manual clicking
                 </p>
@@ -233,16 +284,29 @@ export default function FeaturesPage() {
               </div>
               <div className="flex-1">
                 <div className="mb-2">
-                  <span className="px-3 py-1 bg-brand-violet/20 text-brand-violet rounded-full text-xs font-medium">Optional Feature</span>
+                  <span className="px-3 py-1 bg-brand-violet/20 text-brand-violet rounded-full text-xs font-medium">
+                    Optional Feature
+                  </span>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 text-white">Discord Rich Presence</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-white">
+                  Discord Rich Presence
+                </h3>
                 <p className="text-gray-400 mb-6 leading-relaxed">
-                  Show your scraping activity on Discord with real-time status updates. Display what you're extracting, track progress, and share your workflow. Fully customizable and can be disabled in settings.
+                  Show your scraping activity on Discord with real-time status
+                  updates. Display what you're extracting, track progress, and
+                  share your workflow. Fully customizable and can be disabled in
+                  settings.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300">Real-time updates</span>
-                  <span className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300">Customizable display</span>
-                  <span className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300">Privacy-friendly</span>
+                  <span className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300">
+                    Real-time updates
+                  </span>
+                  <span className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300">
+                    Customizable display
+                  </span>
+                  <span className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300">
+                    Privacy-friendly
+                  </span>
                 </div>
               </div>
             </div>
@@ -255,9 +319,15 @@ export default function FeaturesPage() {
             Ready to Try <span className="gradient-text">These Features?</span>
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Download Browse4Extract and start extracting web data with all these powerful features
+            Download Browse4Extract and start extracting web data with all these
+            powerful features
           </p>
-          <Button icon={Download} href="/download" glow className="text-lg px-8 py-4">
+          <Button
+            icon={Download}
+            href="/download"
+            glow
+            className="text-lg px-8 py-4"
+          >
             Download for Free
           </Button>
         </div>

@@ -1,4 +1,16 @@
-# Browse4Extract Official Website
+<div align="center">
+  <img src="public/images/logo.png" alt="Browse4Extract Logo" width="80" height="80">
+
+  # Browse4Extract Official Website
+
+  **Professional Open-Source Web Scraping Tool**
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+  [![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/4aGq6UZk3P)
+
+</div>
+
+---
 
 This is the official promotional website for **Browse4Extract**, a powerful Electron desktop application for extracting web data with visual element selection.
 
@@ -121,17 +133,30 @@ const nextConfig = {
 npm run build
 ```
 
+## 💬 Support
+
+Need help or have questions?
+
+- 💬 **Discord**: Join our community at [discord.gg/4aGq6UZk3P](https://discord.gg/4aGq6UZk3P) and message **@sieapps**
+- 🐛 **Issues**: [GitHub Issues](https://github.com/browse4extract/b4e-website/issues)
+- 📖 **Documentation**: Check the [`/docs`](docs/) folder
+
 ## 📄 License
 
-MIT License - see the main Browse4Extract repository for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
-## 👨‍💻 Author
+## 👥 Credits
 
-**B4E Team**
+**© 2025 B4E Team & Contributors**
 
-- GitHub: [https://github.com/browse4extract/Browse4Extract](https://github.com/browse4extract/Browse4Extract)
-- Organization: [https://github.com/browse4extract](https://github.com/browse4extract)
+- GitHub Organization: [browse4extract](https://github.com/browse4extract)
+- Main Project: [Browse4Extract](https://github.com/browse4extract/Browse4Extract)
+- Website Repo: [b4e-website](https://github.com/browse4extract/b4e-website)
 
 ---
 
-Built with ❤️ for the Browse4Extract community
+<div align="center">
+  <strong>Built with ❤️ by the Browse4Extract community</strong>
+  <br>
+  <sub>Open Source • MIT Licensed • Community Driven</sub>
+</div>

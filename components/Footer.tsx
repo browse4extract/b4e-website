@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Github, Heart, Star } from 'lucide-react';
-import { assetPath } from '@/lib/assetPath';
-
+import React from "react";
+import Link from "next/link";
+import { Github, Heart, Star } from "lucide-react";
+import { SafeImage } from "@/components/SafeImage";
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -17,13 +16,15 @@ export const Footer: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl overflow-hidden">
-                <img
-                  src={assetPath('/images/logo.png')}
+                <SafeImage
+                  src="/images/logo.png"
                   alt="Browse4Extract Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-lg font-bold gradient-text">Browse4Extract</span>
+              <span className="text-lg font-bold gradient-text">
+                Browse4Extract
+              </span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
               Visual web data extraction made simple. No coding required.
@@ -40,17 +41,26 @@ export const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-brand-green transition-colors text-sm">
+                <Link
+                  href="/"
+                  className="text-gray-400 hover:text-brand-green transition-colors text-sm"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/features" className="text-gray-400 hover:text-brand-green transition-colors text-sm">
+                <Link
+                  href="/features"
+                  className="text-gray-400 hover:text-brand-green transition-colors text-sm"
+                >
                   Features
                 </Link>
               </li>
               <li>
-                <Link href="/download" className="text-gray-400 hover:text-brand-green transition-colors text-sm">
+                <Link
+                  href="/download"
+                  className="text-gray-400 hover:text-brand-green transition-colors text-sm"
+                >
                   Download
                 </Link>
               </li>
@@ -86,9 +96,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800/50">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-            <div>
-              © {currentYear} Browse4Extract. All rights reserved.
-            </div>
+            <div>{currentYear} &copy; Browse4Extract. All rights reserved.</div>
             <div className="flex items-center gap-4">
               <span>MIT License</span>
               <span className="text-gray-700">•</span>
