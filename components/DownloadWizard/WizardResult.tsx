@@ -33,8 +33,8 @@ export default function WizardResult() {
     if (selectedOS === 'macos') {
       const arch = selectedMacArch || 'arm64';
       return selectedInstallType === 'installer'
-        ? versionData.downloadLinks.macos[arch].installer
-        : versionData.downloadLinks.macos[arch].portable;
+        ? versionData.downloadLinks.macos[arch].dmg
+        : versionData.downloadLinks.macos[arch].zip;
     }
 
     if (selectedOS === 'linux') {
@@ -60,8 +60,8 @@ export default function WizardResult() {
     if (selectedOS === 'macos') {
       const arch = selectedMacArch || 'arm64';
       return selectedInstallType === 'installer'
-        ? versionData.downloadLinks.macos[arch].portable
-        : versionData.downloadLinks.macos[arch].installer;
+        ? versionData.downloadLinks.macos[arch].zip
+        : versionData.downloadLinks.macos[arch].dmg;
     }
 
     if (selectedOS === 'linux') {
