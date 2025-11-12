@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { Download } from 'lucide-react';
-import { Button } from '@/components/Button';
-import { useToast } from '@/components/Toast';
+import { useWizardContext } from '@/components/DownloadWizard/WizardContext';
 
 interface DownloadButtonProps {
   children: React.ReactNode;
@@ -11,6 +10,7 @@ interface DownloadButtonProps {
   className?: string;
   glow?: boolean;
   platform?: string;
+  downloadUrl?: string;
 }
 
 export const DownloadButton: React.FC<DownloadButtonProps> = ({
@@ -19,37 +19,45 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
   className = '',
   glow = false,
   platform,
+  downloadUrl,
 }) => {
-  const { showToast } = useToast();
+  const { openWizard } = useWizardContext();
 
-  const handleDownloadClick = () => {
-    const currentDomain = typeof window !== 'undefined' ? window.location.hostname : 'browse4extract.github.io';
+  // If a specific download URL is provided, use it
+  if (downloadUrl) {
+    return (
+      <a
+        href={downloadUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${className} px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 shadow-lg ${
+          variant === 'primary'
+            ? 'bg-gradient-brand hover:opacity-90 text-white hover:scale-105'
+            : variant === 'secondary'
+            ? 'glass-strong border border-gray-800 hover:border-gray-700 text-white hover:scale-105'
+            : 'border-2 border-gray-800 hover:border-brand-green hover:bg-brand-green/10 text-white hover:scale-105'
+        } ${glow ? 'glow-brand hover-glow-green' : ''}`}
+      >
+        <Download size={20} />
+        {children}
+      </a>
+    );
+  }
 
-    const platformText = platform ? ` for ${platform}` : '';
-
-    const message = `🚧 The software${platformText} is still in development but will be available soon!
-
-📌 Bookmark this domain to stay updated:
-   → ${currentDomain}
-
-⚠️  This is the ONLY official domain for the application.
-
-✅ To verify authenticity, you can visit:
-   → github.com/browse4extract`;
-
-    showToast(message, 'info', 10000);
-  };
-
+  // Otherwise, open the wizard
   return (
-    <Button
-      variant={variant}
-      icon={Download}
-      className={className}
-      glow={glow}
-      disabled
-      onClick={handleDownloadClick}
+    <button
+      onClick={openWizard}
+      className={`${className} px-6 py-3 rounded-xl font-medium transition-all duration-300 inline-flex items-center gap-2 shadow-lg ${
+        variant === 'primary'
+          ? 'bg-gradient-brand hover:opacity-90 text-white hover:scale-105'
+          : variant === 'secondary'
+          ? 'glass-strong border border-gray-800 hover:border-gray-700 text-white hover:scale-105'
+          : 'border-2 border-gray-800 hover:border-brand-green hover:bg-brand-green/10 text-white hover:scale-105'
+      } ${glow ? 'glow-brand hover-glow-green' : ''}`}
     >
+      <Download size={20} />
       {children}
-    </Button>
+    </button>
   );
 };

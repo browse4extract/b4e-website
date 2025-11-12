@@ -56,14 +56,6 @@ export const Footer: React.FC = () => {
                   Features
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/download"
-                  className="text-gray-400 hover:text-brand-green transition-colors text-sm"
-                >
-                  Download
-                </Link>
-              </li>
             </ul>
           </div>
 

@@ -4,6 +4,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ToastProvider } from "@/components/Toast";
 import { DomainVerification } from "@/components/DomainVerification";
+import { WizardProvider } from "@/components/DownloadWizard/WizardContext";
+import WizardModal from "@/components/DownloadWizard/WizardModal";
 import { getSiteUrl } from "@/lib/getSiteUrl";
 import { assetPath } from "@/lib/assetPath";
 
@@ -131,9 +133,12 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <DomainVerification>
           <ToastProvider>
-            <Header />
-            <main className="flex-1 pt-16">{children}</main>
-            <Footer />
+            <WizardProvider>
+              <Header />
+              <main className="flex-1 pt-16">{children}</main>
+              <Footer />
+              <WizardModal />
+            </WizardProvider>
           </ToastProvider>
         </DomainVerification>
       </body>

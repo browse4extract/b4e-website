@@ -81,12 +81,6 @@ export default function NotFound() {
               >
                 Features
               </Link>
-              <Link
-                href="/download"
-                className="px-4 py-2 glass-subtle rounded-lg text-sm text-gray-300 hover:text-brand-green hover:bg-white/5 transition-all"
-              >
-                Download
-              </Link>
             </div>
           </div>
         </Card>

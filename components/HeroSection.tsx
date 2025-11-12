@@ -1,13 +1,24 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Github, Sparkles } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { DownloadButton } from '@/components/DownloadButton';
 import { Card } from '@/components/Card';
 import { SafeImage } from '@/components/SafeImage';
+import { fetchVersionData, getFallbackVersionData, type VersionData } from '@/lib/versionFetcher';
 
 export function HeroSection() {
+  const [versionData, setVersionData] = useState<VersionData>(getFallbackVersionData());
+
+  useEffect(() => {
+    fetchVersionData()
+      .then((data) => setVersionData(data))
+      .catch(() => {
+        // Fallback data already set in initial state
+      });
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] flex items-center px-4 overflow-hidden pt-24 pb-16">
       {/* Animated background gradient */}
@@ -28,7 +39,7 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 glass-strong border border-gray-800/50 rounded-full text-sm mb-8">
               <Sparkles size={16} className="text-brand-green" />
               <span className="text-gray-300">
-                v1.0.0 • Open Source • Cross-Platform
+                v{versionData.version} • Open Source • Cross-Platform
               </span>
             </div>
 
@@ -40,10 +51,9 @@ export function HeroSection() {
 
             {/* Tagline */}
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Visual web scraping made simple. Click elements, extract data,
-              export instantly.
+              Point, click, extract. Visual web scraping with intelligent selector generation and encrypted session management.
               <span className="block mt-2 text-gray-400">
-                No programming required.
+                Support for authenticated content • Built-in stealth mode • 100% Free & Open Source
               </span>
             </p>
 

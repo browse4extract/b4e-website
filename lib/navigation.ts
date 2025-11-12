@@ -44,15 +44,6 @@ export const routes: NavigationItem[] = [
     includeInNav: true,
     includeInSitemap: true,
   },
-  {
-    href: "/download",
-    label: "Download",
-    description: "Download Browse4Extract for Windows, macOS, and Linux",
-    priority: 0.9,
-    changeFrequency: "weekly",
-    includeInNav: true,
-    includeInSitemap: true,
-  },
 ];
 
 /**

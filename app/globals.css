@@ -232,4 +232,50 @@
                   0 0 90px rgba(111, 187, 105, 0.2);
     }
   }
+
+  /* Wizard animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Shadow glow utilities */
+  .shadow-glow-green {
+    box-shadow: 0 4px 20px rgba(111, 187, 105, 0.3);
+  }
+
+  .shadow-glow-green-strong {
+    box-shadow: 0 8px 30px rgba(111, 187, 105, 0.5);
+  }
+
+  .shadow-glow-violet {
+    box-shadow: 0 4px 20px rgba(191, 143, 215, 0.3);
+  }
+
+  .shadow-glow-violet-strong {
+    box-shadow: 0 8px 30px rgba(191, 143, 215, 0.5);
+  }
 }

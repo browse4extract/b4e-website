@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Card } from "@/components/Card";
-import { Button } from "@/components/Button";
+import { DownloadButton } from "@/components/DownloadButton";
 import { SafeImage } from "@/components/SafeImage";
 
 export default function FeaturesPage() {
@@ -53,37 +53,37 @@ export default function FeaturesPage() {
           <FeatureCard
             icon={MousePointer2}
             title="Visual Element Picker"
-            description="Point and click to select any element on a webpage. Smart CSS selector generation with automatic fallbacks (ID → Class → XPath). Real-time highlighting shows exactly what will be extracted."
+            description="Our #1 feature - Click directly on webpage elements. Intelligent selector generation with fallbacks (data-* → ID → Class → XPath). Auto-detection of extraction type. Automatically excludes popups and cookie banners."
             gradient="green"
           />
           <FeatureCard
-            icon={Zap}
-            title="Powerful Extraction Engine"
-            description="Extract text, attributes, links, images, and child elements. Batch process multiple items with automatic scroll handling for lazy-loaded content. Process hundreds of elements in seconds."
+            icon={Cookie}
+            title="Session Management"
+            description="Scrape authenticated content securely. Save login sessions with OS-native encryption (Windows DPAPI, macOS Keychain, Linux libsecret). Supports cookies, localStorage, and sessionStorage. Automatic expiry detection."
             gradient="brand"
           />
           <FeatureCard
             icon={Shield}
             title="Anti-Detection & Stealth"
-            description="Bypass bot detection with Puppeteer Stealth mode. Built-in ad blocker and automatic cookie consent handling. Realistic browser fingerprint prevents blocks."
+            description="Bypass bot detection with Puppeteer Stealth mode. Realistic fingerprints, integrated ad blocker, and automatic cookie consent handling. 95% success rate on standard sites, 85% on Cloudflare Basic."
             gradient="violet"
+          />
+          <FeatureCard
+            icon={AlertCircle}
+            title="Network Security Monitor"
+            description="Real-time monitoring of network traffic. Detects suspicious domains, credential leaks, and data exfiltration attempts. Multiple security levels from relaxed to paranoid. Automatic threat logging."
+            gradient="green"
           />
           <FeatureCard
             icon={FileJson}
             title="Multiple Export Formats"
-            description="Export to JSON for APIs, CSV for spreadsheets, or XLSX for professional reports. All formats include proper encoding and structure for immediate use."
-            gradient="green"
+            description="Export to JSON (API-ready), CSV (Excel-compatible), or XLSX (formatted spreadsheets with styling). All formats include proper encoding, structure, and are ready for immediate use."
+            gradient="brand"
           />
           <FeatureCard
             icon={FolderOpen}
             title="Profile Management"
-            description="Save extraction configurations as reusable profiles. Instantly load saved setups. Export/import .b4e files to share with teams or backup your work."
-            gradient="brand"
-          />
-          <FeatureCard
-            icon={Moon}
-            title="Dark Mode Interface"
-            description="Beautiful dark theme throughout the application and embedded browser. Custom gradient accents. Designed for comfortable long scraping sessions."
+            description="Save extraction configurations as reusable .b4e profiles. Load saved setups instantly. Custom file extension with icon association. Export/import to share with teams or backup your work."
             gradient="violet"
           />
         </div>
@@ -274,7 +274,7 @@ export default function FeaturesPage() {
         </div>
 
         {/* Bonus Feature */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-24">
           <Card variant="glow-brand" hover>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="flex-shrink-0">
@@ -313,6 +313,92 @@ export default function FeaturesPage() {
           </Card>
         </div>
 
+        {/* Comparison Table */}
+        <div className="max-w-6xl mx-auto mb-24">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              <span className="gradient-text">Why Choose Browse4Extract?</span>
+            </h2>
+            <p className="text-gray-400 text-lg">
+              See how we compare to the competition
+            </p>
+          </div>
+
+          <Card variant="glow-brand" className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b border-gray-800">
+                  <th className="py-4 px-6 text-gray-300 font-semibold">Feature</th>
+                  <th className="py-4 px-6 text-center">
+                    <div className="font-bold text-brand-green">Browse4Extract</div>
+                  </th>
+                  <th className="py-4 px-6 text-center text-gray-400">Octoparse</th>
+                  <th className="py-4 px-6 text-center text-gray-400">ParseHub</th>
+                  <th className="py-4 px-6 text-center text-gray-400">WebScraper.io</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Visual Element Picker</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">✓ Click Direct</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Point & Click</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Point & Click</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Point & Click</td>
+                </tr>
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Session Auth</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">✓ Encrypted</td>
+                  <td className="py-4 px-6 text-center text-red-500">✗</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Manual</td>
+                  <td className="py-4 px-6 text-center text-red-500">✗</td>
+                </tr>
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Stealth Mode</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">✓ Full</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Basic</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Basic</td>
+                  <td className="py-4 px-6 text-center text-red-500">✗</td>
+                </tr>
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Export Formats</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">JSON, CSV, XLSX</td>
+                  <td className="py-4 px-6 text-center text-gray-400">JSON, CSV, XLSX, DB</td>
+                  <td className="py-4 px-6 text-center text-gray-400">JSON, CSV</td>
+                  <td className="py-4 px-6 text-center text-gray-400">JSON, CSV</td>
+                </tr>
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Discord Integration</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">✓</td>
+                  <td className="py-4 px-6 text-center text-red-500">✗</td>
+                  <td className="py-4 px-6 text-center text-red-500">✗</td>
+                  <td className="py-4 px-6 text-center text-red-500">✗</td>
+                </tr>
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Price</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-bold">Free & Open Source</td>
+                  <td className="py-4 px-6 text-center text-gray-400">$75-299/mo</td>
+                  <td className="py-4 px-6 text-center text-gray-400">$189-599/mo</td>
+                  <td className="py-4 px-6 text-center text-gray-400">$50-249/mo</td>
+                </tr>
+                <tr className="border-b border-gray-800/50">
+                  <td className="py-4 px-6 text-gray-300">Offline Mode</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">✓ Desktop App</td>
+                  <td className="py-4 px-6 text-center text-gray-500">⚠ Mixed</td>
+                  <td className="py-4 px-6 text-center text-gray-400">☁ Cloud Only</td>
+                  <td className="py-4 px-6 text-center text-gray-400">☁ Cloud Only</td>
+                </tr>
+                <tr>
+                  <td className="py-4 px-6 text-gray-300">Platform</td>
+                  <td className="py-4 px-6 text-center text-brand-green font-semibold">Win, Mac, Linux</td>
+                  <td className="py-4 px-6 text-center text-gray-400">Windows Only</td>
+                  <td className="py-4 px-6 text-center text-gray-400">Win, Mac</td>
+                  <td className="py-4 px-6 text-center text-gray-400">Browser Ext</td>
+                </tr>
+              </tbody>
+            </table>
+          </Card>
+        </div>
+
         {/* CTA */}
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-6">
@@ -322,14 +408,14 @@ export default function FeaturesPage() {
             Download Browse4Extract and start extracting web data with all these
             powerful features
           </p>
-          <Button
-            icon={Download}
-            href="/download"
-            glow
-            className="text-lg px-8 py-4"
-          >
-            Download for Free
-          </Button>
+          <div className="flex justify-center">
+            <DownloadButton
+              glow
+              className="text-lg px-8 py-4 max-w-xs"
+            >
+              Download for Free
+            </DownloadButton>
+          </div>
         </div>
       </div>
     </div>
